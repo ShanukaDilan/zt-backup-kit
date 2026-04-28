@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- `bin/backup-status.sh` — at-a-glance status report showing snapshot count,
+  logical vs stored size, deduplication ratio, freshness of latest snapshot,
+  recent run history, and cron schedule status. Supports `--short`, `--runs`,
+  and `--json` modes. The JSON mode is suitable for monitoring integrations.
 - Pull-mode setup scripts (planned)
 - Healthchecks.io integration (planned)
 - Slack/ntfy.sh notifications (planned)

@@ -36,6 +36,7 @@ admin around. This kit provides:
 - An automated, encrypted, deduplicated backup pipeline (`backup.sh`)
 - An interactive, safe restore tool (`restore.sh`)
 - A bootstrap recovery script that works on any clean Linux/macOS machine (`emergency-restore.sh`)
+- A status inspector showing snapshots, sizes, and dedup ratio (`backup-status.sh`)
 - A documented disaster recovery runbook (`docs/DR-RUNBOOK.md`)
 
 You configure it once, it runs from cron, it emails you a styled HTML report,
@@ -115,6 +116,25 @@ your own Google Cloud OAuth credentials to avoid shared-quota rate limits.
 
 See [docs/DR-RUNBOOK.md](docs/DR-RUNBOOK.md) — Scenario B has the step-by-step.
 
+## Status &amp; inspection
+
+`backup-status.sh` is your at-a-glance health check. Run it anytime to see
+the state of the repository:
+
+```bash
+./bin/backup-status.sh                # full report
+./bin/backup-status.sh --short        # one-page summary
+./bin/backup-status.sh --runs         # only the last 15 runs
+./bin/backup-status.sh --json         # machine-readable JSON
+```
+
+It shows snapshot count, file count, logical vs. stored size, deduplication
+ratio, freshness of the latest snapshot (color-coded), recent run history,
+and whether your cron schedule is installed correctly.
+
+The `--json` mode is suitable for monitoring integrations (Healthchecks.io,
+Prometheus textfile, Grafana, custom dashboards).
+
 ## Architecture
 
 zt-backup-kit can run in two architectural modes:
@@ -160,10 +180,11 @@ is on the roadmap (see Issues #1).
 
 ```
 zt-backup-kit/
-├── bin/                     # the three main scripts
-│   ├── backup.sh
-│   ├── restore.sh
-│   └── emergency-restore.sh
+├── bin/                     # the four main scripts
+│   ├── backup.sh            # automated backup
+│   ├── restore.sh           # interactive restore
+│   ├── emergency-restore.sh # bootstrap recovery anywhere
+│   └── backup-status.sh     # snapshots / sizes / dedup / runs
 ├── config/
 │   └── config.example.sh    # template; copy to config.sh and edit
 ├── docs/                    # documentation

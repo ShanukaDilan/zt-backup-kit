@@ -20,7 +20,21 @@ You'll see live progress and get an email (if configured) when it finishes.
 
 ## Inspecting backups
 
-Set the same environment your config uses, then run any restic command:
+The fastest way to see the state of your repository is `backup-status.sh`:
+
+```bash
+./bin/backup-status.sh                # full report
+./bin/backup-status.sh --short        # one-page summary
+./bin/backup-status.sh --runs         # only run history
+./bin/backup-status.sh --json         # machine-readable
+```
+
+It shows snapshot count, sizes, deduplication ratio, freshness of the latest
+snapshot (color-coded), the last 15 backup runs from your local log, and
+whether the cron schedule is installed.
+
+For lower-level access, set the same environment your config uses, then run
+any restic command:
 
 ```bash
 export RCLONE_CONFIG="$HOME/.config/rclone/rclone.conf"
