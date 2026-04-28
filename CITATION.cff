@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+title: "zt-backup-kit: Zero-Trust Backup & Restore Kit"
+message: "If you use this software, please cite it as below."
+type: software
+authors:
+  - given-names: "A.S. Dilan"
+    family-names: "Gomas"
+    affiliation: "Department of Information Technology, Sabaragamuwa University of Sri Lanka"
+repository-code: "https://github.com/ShanukaDilan/zt-backup-kit"
+url: "https://github.com/ShanukaDilan/zt-backup-kit"
+abstract: >-
+  zt-backup-kit is a ransomware-resilient automated backup and restore toolkit
+  for Linux servers. It wraps Restic with multi-target support (Google Drive,
+  S3, Backblaze B2, NAS, SFTP, local), AES-256 encryption, content-defined
+  deduplication, retention enforcement, HTML email reports, and a documented
+  disaster recovery workflow including emergency self-service restore from
+  any clean machine.
+keywords:
+  - backup
+  - restore
+  - ransomware-protection
+  - disaster-recovery
+  - zero-trust
+  - restic
+  - rclone
+  - linux
+  - encryption
+  - deduplication
+  - bash
+license: MIT
+version: "0.1.0"
+date-released: "2026-04-28"

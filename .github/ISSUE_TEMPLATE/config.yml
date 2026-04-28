@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/ShanukaDilan/zt-backup-kit/security/advisories/new
+    about: For security issues, please use a private security advisory.
+  - name: Question / discussion
+    url: https://github.com/ShanukaDilan/zt-backup-kit/discussions
+    about: For general questions, use Discussions instead of Issues.

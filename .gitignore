@@ -1,0 +1,85 @@
+# ==============================================================================
+#  zt-backup-kit .gitignore
+# ==============================================================================
+#  CRITICAL: this protects you from accidentally committing secrets.
+#  If you add any new file containing credentials, ADD IT HERE FIRST.
+
+# ---------- Real config (template stays as config.example.sh) ----------
+config/config.sh
+config.sh
+*.local.sh
+
+# ---------- Credentials & secrets ----------
+.restic-pass
+*.restic-pass
+.password
+*.pass
+*.key
+*.pem
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+id_ecdsa*
+id_dsa*
+known_hosts
+
+# rclone configuration with embedded tokens
+rclone.conf
+.rclone.conf
+
+# msmtp configuration
+.msmtprc
+
+# Encrypted credentials archives (still safer to keep out of repo)
+*.gpg
+*.asc
+*.tar.gz.gpg
+
+# ---------- Logs & runtime data ----------
+logs/
+*.log
+*.log.*
+backup-summary.log
+backup-skipped.log
+
+# Lock files
+*.lock
+.zt-backup-kit/
+
+# ---------- Generated/temporary ----------
+/tmp/
+tmp/
+.tmp/
+*.tmp
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Restored data (in case someone runs restore.sh in the repo dir)
+/restore-*/
+/recovery-*/
+ztbk-restore-*/
+fssl-restore-*/
+
+# Test artifacts
+tests/output/
+tests/*.actual
+
+# ---------- Editor / IDE ----------
+.vscode/
+.idea/
+*.iml
+.project
+.settings/
+
+# ---------- Build / packaging ----------
+dist/
+build/
+*.tar.gz
+*.zip
+*.deb
+*.rpm

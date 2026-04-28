@@ -1,0 +1,68 @@
+; ==============================================================================
+;  zt-backup-kit systemd timer (alternative to cron)
+; ------------------------------------------------------------------------------
+;  Modern Linux distros often prefer systemd timers over cron because:
+;    - They run missed jobs automatically (RandomizedDelaySec)
+;    - Output is captured by journalctl
+;    - Can specify resource limits and dependencies
+;
+;  Install both files in /etc/systemd/system/ (root) or
+;  ~/.config/systemd/user/ (per-user) and run:
+;    systemctl --user daemon-reload
+;    systemctl --user enable --now zt-backup.timer
+; ==============================================================================
+
+; ---------- /etc/systemd/system/zt-backup.service ----------
+
+[Unit]
+Description=zt-backup-kit daily backup
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=backup
+ExecStart=/home/backup/zt-backup-kit/bin/backup.sh
+Nice=10
+IOSchedulingClass=idle
+; Optional resource caps:
+; MemoryMax=2G
+; CPUQuota=50%
+
+[Install]
+WantedBy=multi-user.target
+
+
+; ---------- /etc/systemd/system/zt-backup.timer ----------
+
+[Unit]
+Description=Run zt-backup-kit daily
+
+[Timer]
+; Run every day at 02:30
+OnCalendar=*-*-* 02:30:00
+
+; If the system was off at 02:30, run as soon as it comes back on
+Persistent=true
+
+; Spread out by up to 30 minutes to avoid stampedes
+RandomizedDelaySec=30m
+
+[Install]
+WantedBy=timers.target
+
+
+; ---------- Useful systemd commands ----------
+;
+; Check status:
+;   systemctl status zt-backup.timer
+;   systemctl list-timers --all
+;
+; See last run output:
+;   journalctl -u zt-backup.service -n 100
+;
+; Run immediately (test):
+;   systemctl start zt-backup.service
+;
+; Disable:
+;   systemctl disable --now zt-backup.timer

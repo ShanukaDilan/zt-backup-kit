@@ -1,0 +1,32 @@
+# ==============================================================================
+#  zt-backup-kit crontab examples
+# ------------------------------------------------------------------------------
+#  Copy the lines you want into your user's crontab with `crontab -e`.
+#  Adjust the path to match where you cloned the repo.
+# ==============================================================================
+
+# Set a sensible PATH for cron (some distros need this even when scripts set
+# their own PATH internally — defense in depth)
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+# Email cron's own output (separate from the script's HTML reports)
+# MAILTO=admin@example.com
+
+# ---------------- Choose ONE schedule ----------------
+
+# Daily at 02:30 — suitable for most websites and small apps
+30 2 * * * /home/USER/zt-backup-kit/bin/backup.sh
+
+# Hourly at minute 5 — busy databases, e-commerce, etc.
+# 5 * * * * /home/USER/zt-backup-kit/bin/backup.sh
+
+# Every 15 minutes — high-frequency data change (requires own OAuth project)
+# */15 * * * * /home/USER/zt-backup-kit/bin/backup.sh
+
+# Twice daily (morning and evening)
+# 0 6,18 * * * /home/USER/zt-backup-kit/bin/backup.sh
+
+# ---------------- Optional: weekly health check email ----------------
+# Run a config validation every Monday at 09:00 and email the result
+# 0 9 * * 1 /home/USER/zt-backup-kit/bin/backup.sh --check 2>&1 | \
+#     mail -s "[zt-backup-kit] Weekly health check" admin@example.com
