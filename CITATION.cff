@@ -5,7 +5,10 @@ type: software
 authors:
   - given-names: "A.S. Dilan"
     family-names: "Gomas"
-    affiliation: "Department of Information Technology, Sabaragamuwa University of Sri Lanka"
+    email: "hello@dilangomas.dev"
+    orcid: "https://orcid.org/0009-0007-5551-4411"
+    affiliation: "Department of Information Technology, Faculty of Social Sciences and Languages, Sabaragamuwa University of Sri Lanka"
+    website: "https://dilangomas.dev"
 repository-code: "https://github.com/ShanukaDilan/zt-backup-kit"
 url: "https://github.com/ShanukaDilan/zt-backup-kit"
 abstract: >-

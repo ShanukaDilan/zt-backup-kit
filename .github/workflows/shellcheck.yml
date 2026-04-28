@@ -17,7 +17,16 @@ jobs:
       - name: Run ShellCheck
         uses: ludeeus/action-shellcheck@master
         with:
-          severity: warning
+          # Only fail on errors, not warnings.
+          # SC2034 (unused variable) is a false positive for our config
+          # pattern: variables are defined in config.example.sh and used in
+          # backup.sh after sourcing. ShellCheck can't follow that across
+          # files, so it flags every config variable.
+          severity: error
           check_together: 'yes'
           scandir: '.'
           ignore_paths: docs examples
+        env:
+          # SC2034 = unused variable (false positive for sourced config)
+          # SC1091 = can't follow non-constant source
+          SHELLCHECK_OPTS: -e SC2034 -e SC1091

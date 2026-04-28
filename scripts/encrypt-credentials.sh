@@ -48,7 +48,8 @@ cp "$RCLONE_CONF" rclone.conf
 
 OUTPUT="ztbk-credentials-$(date +%Y%m%d-%H%M%S).tar.gz.gpg"
 
-export GPG_TTY=$(tty)
+GPG_TTY=$(tty)
+export GPG_TTY
 tar czf - .restic-pass rclone.conf | \
     gpg --symmetric --cipher-algo AES256 \
         --output "$OUTPUT"

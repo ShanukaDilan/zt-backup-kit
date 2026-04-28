@@ -199,7 +199,20 @@ Email the maintainer instead. See [SECURITY.md](SECURITY.md) for details.
 
 ## License
 
-[MIT](LICENSE) © 2026 Dilan Gomas
+[MIT](LICENSE) © 2026 A.S. Dilan Gomas
+
+## Author
+
+**A.S. Dilan Gomas**
+Demonstrator, Department of Information Technology
+Faculty of Social Sciences and Languages
+Sabaragamuwa University of Sri Lanka
+
+- 🌐 [dilangomas.dev](https://dilangomas.dev)
+- 🔗 [LinkedIn](https://www.linkedin.com/in/shanukadilan/)
+- 🆔 [ORCID: 0009-0007-5551-4411](https://orcid.org/0009-0007-5551-4411)
+- 📚 [Google Scholar](https://scholar.google.com/citations?user=djAh6alAAAAJ)
+- 📧 [hello@dilangomas.dev](mailto:hello@dilangomas.dev)
 
 ## Citation
 
