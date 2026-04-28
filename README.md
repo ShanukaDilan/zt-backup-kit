@@ -5,6 +5,7 @@
 </p>
 
 <p align="center">
+  <a href="https://doi.org/10.5281/zenodo.19849290"><img alt="DOI" src="https://zenodo.org/badge/DOI/10.5281/zenodo.19849290.svg"></a>
   <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-blue.svg"></a>
   <img alt="Bash" src="https://img.shields.io/badge/shell-bash-89e051.svg">
   <img alt="Linux" src="https://img.shields.io/badge/platform-linux%20%7C%20macOS-lightgrey.svg">
@@ -216,17 +217,20 @@ Sabaragamuwa University of Sri Lanka
 
 ## Citation
 
-If you use this software in research, please cite it. Once a Zenodo release
-exists, a DOI will be available here. For now you can cite via the
-GitHub repository:
+If you use this software in research or production, please cite it.
+A permanent DOI is provided by Zenodo:
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19849290.svg)](https://doi.org/10.5281/zenodo.19849290)
 
 ```bibtex
 @software{ztbackupkit2026,
   author       = {Gomas, A.S. Dilan},
   title        = {zt-backup-kit: Zero-Trust Backup \& Restore Kit},
   year         = {2026},
-  url          = {https://github.com/ShanukaDilan/zt-backup-kit},
-  license      = {MIT}
+  publisher    = {Zenodo},
+  version      = {v0.1.0},
+  doi          = {10.5281/zenodo.19849290},
+  url          = {https://doi.org/10.5281/zenodo.19849290}
 }
 ```
 
